@@ -1,0 +1,29 @@
+.contenedor__header{
+    background-color: rgb(37, 1, 71);
+    .titulo{
+        color: azure;
+        font-size: 80px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .nav__bar{
+        color: aquamarine;
+        .menu__contenedor{
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: right;
+            .menu__opciones{
+                text-decoration: none;
+                font-size: 50px;
+                font-weight: bold;
+                font-family: sans-serif;
+                &:hover {
+                    color: black;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
