@@ -1,21 +1,16 @@
 import React from 'react'
 import { Header } from "../componentes/Header"
-import { Saludo } from "../componentes/saludo"
-import { LogoConContador } from '../componentes/contador';
+import { Saludo } from "../componentes/ItemListContainer"
 
 
 
 
 function App() {
   
-  const contador = 10;
-
   return (
     <div>
       <Header />
-      <LogoConContador contador={contador} />
       <Saludo nombre={"Gabi"} />
-
     </div>
   )
 }

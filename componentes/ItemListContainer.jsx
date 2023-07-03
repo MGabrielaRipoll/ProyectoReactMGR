@@ -1,4 +1,4 @@
-import './saludo.scss'
+import './ItemListContainer.scss'
 
 export const Saludo = ({nombre}) => {
     return (

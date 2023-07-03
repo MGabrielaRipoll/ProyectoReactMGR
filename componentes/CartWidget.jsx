@@ -1,9 +1,9 @@
-import './contador.scss'
+import './CartWidget.scss'
 
 
-export const LogoConContador = ({ contador }) => {
+export const CartWidget = ({ contador }) => {
     return (
-        <div>
+        <div className='contenedor__cartwidget'>
             <img src="/carrito.png" className='logo__carrito' alt="Logo de carrito"/>
             <span>{contador}</span>
         </div>
