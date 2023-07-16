@@ -1,17 +1,19 @@
-import React from 'react'
-import { Header } from "../componentes/Header"
-import { Saludo } from "../componentes/ItemListContainer"
-
-
-
+import { Header } from "../componentes/Header/Header"
+import ItemListContainer from "../componentes/ItemListContainer/ItemListContainer"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+// import './App.css'
 
 function App() {
-  
+
   return (
-    <div>
-      <Header />
-      <Saludo nombre={"Gabi"} />
-    </div>
+    <BrowserRouter>
+        <Header />        
+        <Routes>
+          <Route path="/" element={ <ItemListContainer /> }/>
+          <Route path="/productos/:categoryId" element={ <ItemListContainer /> }/>
+          {/* <Route path="*" element={ <Error404 /> }/> */}
+        </Routes>
+    </BrowserRouter>
   )
 }
 
