@@ -36,7 +36,7 @@
         "nombre": "Cristal",
         "descripcion": "La querida Cristal.. un clasico",
         "precio": 2200,
-        "img": "..public/Cristal.png",
+        "img": "../public/Cristal.png",
         "category": "legendaria"
     },
     {
