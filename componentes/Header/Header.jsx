@@ -1,7 +1,8 @@
 
-import { CartWidget } from '../CartWidget/CartWidget'
 import { Link } from 'react-router-dom'
 import './Header.scss'
+import CartWidget from '../CartWidget/CartWidget'
+
 
 
 export const Header = () => {   
@@ -13,7 +14,7 @@ export const Header = () => {
             <h1 className="titulo">
                 Skin Mannia              
             </h1>
-            <CartWidget contador={contador} />
+            <CartWidget contador={ contador } />
             <nav className="nav__bar">
                 <ul className="menu__contenedor">
                     <Link className="menu__opciones" to="/">Inicio</Link>
