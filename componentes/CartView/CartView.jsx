@@ -1,19 +1,32 @@
 import { useContext } from "react"
 import { CartContext } from "../Context/CartContext"
-// import { FaTrashAlt } from 'react-icons/fa'
 import { Link } from "react-router-dom"
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+
+
+
 
 
 
 const CartView = () => {
     const { cart, totalCompra, vaciarCarrito, removerDelCarrito } = useContext(CartContext)
-
+    
     if (cart.length === 0) {
         return (
             <div className="container my-5">
-                <h2 className="text-4xl">Tu carrito está vacío :(</h2>
+                <Stack sx={{ width: '100%' }} spacing={2}>
+                    <Alert severity="info">Olvido agregar un producto a su carrito</Alert>
+                </Stack>
                 <hr/>
-                <Link to="/" className="btn btn-success">Ir a comprar</Link>
+                <Link to="/">
+                    <Stack direction="row" spacing={2}>
+                        <Button variant="contained" color="success">
+                            Ir a Comprar
+                        </Button>
+                    </Stack>
+                </Link>
             </div>
         )
     }
@@ -37,6 +50,7 @@ const CartView = () => {
             }
 
             <div>
+                
                 <h4 className="text-3xl my-2">Total: ${totalCompra()}</h4>
                 <button onClick={vaciarCarrito} className="btn btn-danger">Vaciar carrito</button>
                 <Link className="btn btn-success mx-2" to="/checkout">Terminar mi compra</Link>

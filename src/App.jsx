@@ -6,6 +6,7 @@ import ItemDetailContainer from "../componentes/ItemDetailContainer/ItemDetailCo
 import { CartProvider } from "../componentes/Context/CartContext";
 import CartView from "../componentes/CartView/CartView";
 import Checkout from "../componentes/Checkout/Checkout";
+import "./App.scss"
 
 function App() {
 

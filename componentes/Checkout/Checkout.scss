@@ -1,0 +1,17 @@
+.Formulario {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 5px;
+    width: 500px;
+    height: 40px;
+    .item_form{
+        padding: 10px;
+        margin: 5px;
+        text-align: center;
+        button{
+            width: 100px;
+            color: green;
+        }
+    }
+}

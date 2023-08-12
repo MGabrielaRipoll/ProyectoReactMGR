@@ -5,19 +5,21 @@ import { db } from "../../src/firebase/config"
 import { Link, Navigate } from "react-router-dom"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from 'yup'
+import Button from 'react-bootstrap/Button';
+import "./Checkout.scss"
 
 const schema = Yup.object().shape({
     nombre: Yup.string()
                 .min(3, "El nombre es demasiado corto")
                 .max(20, "Máximo 20 caracteres")
-                .required("Este campo es obligatorio"),
+                .required("Ingrese su nombre por favor"),
     direccion: Yup.string()
                 .min(6, "La direccion es demasiado corta")
                 .max(20, "Máximo 20 caracteres")
-                .required("Este campo es obligatorio"),
+                .required("Ingrese su direccion por favor"),
     email: Yup.string()
-                .required("Este campo es obligatorio")
-                .email("El email es inválido")
+                .required("Ingrese su email por favor")
+                .email("El email ingresado es inválido")
 })
 
 const Checkout = () => {
@@ -108,14 +110,14 @@ const Checkout = () => {
                 validationSchema={schema}
             >
                 {() => (
-                    <Form>
-                        <Field placeholder="Tu nombre" className="form-control my-2" type="text" name="nombre"/>
+                    <Form className="Formulario">
+                        <Field placeholder="Tu nombre" className="form-control my-2 item_form" type="text" name="nombre"/>
                         <ErrorMessage name="nombre" component="p"/>
-                        <Field placeholder="Tu direccion" className="form-control my-2" type="text" name="direccion"/>
+                        <Field placeholder="Tu direccion" className="form-control my-2 item_form" type="text" name="direccion"/>
                         <ErrorMessage name="direccion" component="p"/>
-                        <Field placeholder="Tu email" className="form-control my-2" type="email" name="email"/>
+                        <Field placeholder="Tu email" className="form-control my-2 item_form" type="email" name="email"/>
                         <ErrorMessage name="email" component="p"/>
-                        <button className="btn btn-success" disabled={loading}>Enviar</button>
+                        <button variant="success" disabled={loading}>Listo</button>
                     </Form>
                 )}
             </Formik>

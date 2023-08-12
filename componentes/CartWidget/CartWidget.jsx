@@ -11,8 +11,8 @@ const CartWidget = () => {
 
     return (
         <div className='contenedor__cartwidget'>
-            <Link to="/cart" alt="Logo de carrito">
-                <img src="../public/carrito.png" className='logo__carrito'  alt="logo de carrito" />
+            <Link to="/cart" alt="Logo de carrito" className='logo__carrito'>
+                <img src="../public/carrito.png" className='logo__carrito' alt="logo de carrito" />
                     <span>{totalCantidad()}</span>
             </Link>
         </div>

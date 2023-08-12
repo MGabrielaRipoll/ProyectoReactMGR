@@ -1,8 +1,12 @@
 .card__contenedor{
     display: flex;
     flex-direction: row;
-    align-items: center;
-    align-content: space-around;
+    // align-items: center;
+    // align-content: space-around;
+    padding: 10px;
     border: black;
     border-radius: 20px;
+    .card_completa {
+        justify-content: space-around;
+    }
 }
