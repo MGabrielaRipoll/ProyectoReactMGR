@@ -20,8 +20,8 @@ export default function MediaCard({item}) {
             <Card className='card__completa'sx={{ maxWidth: 345 }}>
                 
                 <CardMedia className='card__imagen'
-                    justifyContent="initial" 
-                    spacing={2}
+                    // justifyContent="initial" 
+                    // spacing={2}
                     sx={{ height: 300 }}
                     image= {item.img}
                     title= {item.nomre}   
@@ -36,7 +36,7 @@ export default function MediaCard({item}) {
                 </CardContent>
                 <CardActions>
                     <Link to={`/detail/${item.id}`}> 
-                        <Stack direction="row" spacing={2}>
+                        <Stack direction="row" itealign-items="center" spacing={2}>
                             <Button variant="contained">Ver más</Button>
                         </Stack>
                     </Link>

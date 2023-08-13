@@ -4,16 +4,15 @@
 }
 .contenedor__header{
     background-color: rgb(37, 1, 71);
+
     height: 200px;
     .titulo{
-        background-color: rgb(37, 1, 71);
         color: rgb(236, 31, 65);
         font-size: 60px;
         font-weight: bold;
         text-align: center;
     }
     .nav__bar{
-        background-color: rgb(37, 1, 71);
         color: aquamarine;
         .menu__contenedor{
             background-color: rgb(37, 1, 71);
@@ -23,14 +22,13 @@
             align-items: center;
             justify-content: right;
             .menu__opciones{
-                background-color: rgb(37, 1, 71);
                 margin: 10px;
                 text-decoration: none;
                 font-size: 30px;
                 font-weight: bold;
                 font-family: sans-serif;
                 &:hover {
-                    color: black;
+                    color: rgb(236, 31, 65);
                     text-transform: uppercase;
                 }
             }

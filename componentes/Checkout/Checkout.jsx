@@ -97,7 +97,7 @@ const Checkout = () => {
 
     return (
         <div className="container my-5">
-            <h2>Checkout</h2>
+            <h2>Completa tu orden de compra</h2>
             <hr/>
 
             <Formik
@@ -117,7 +117,7 @@ const Checkout = () => {
                         <ErrorMessage name="direccion" component="p"/>
                         <Field placeholder="Tu email" className="form-control my-2 item_form" type="email" name="email"/>
                         <ErrorMessage name="email" component="p"/>
-                        <button variant="success" disabled={loading}>Listo</button>
+                        <button className="button_form" variant="success"  disabled={loading}>Listo</button>
                     </Form>
                 )}
             </Formik>
