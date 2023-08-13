@@ -10,6 +10,11 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import "./ItemDetail.scss"
+
+
 
 
 
@@ -34,7 +39,7 @@ const ItemDetail = ({item}) => {
                     justifyContent="initial" 
                     spacing={2}
                     variant="outlined"
-                    sx={{ height: 500 }}
+                    sx={{ height: 300 }}
                     image= {item.img}
                     title= {item.nomre}
                 />      
@@ -47,16 +52,17 @@ const ItemDetail = ({item}) => {
                     </Typography>
                 </CardContent>
             </Card>
-        {/* </div>
-        // <div className="container my-5">
-        //     <h2>{item.nombre}</h2>
-        //     <img src={item.img} alt={item.nombre}/>
-        //     <p>{item.descripcion}</p>
-        //     <p>Precio: ${item.precio}</p> */}
 
             {
                 isInCart(item.id)
-                    ? <Link className="btn btn-success" to="/cart">Terminar mi compra</Link>
+                    ?
+                    <Link className="link_terminar" to="/cart">
+                        <Stack direction="row" spacing={2}>
+                            <Button className="button_terminar" variant="contained" color="success">
+                                Terminar mi compra
+                            </Button>
+                        </Stack>
+                    </Link> 
                     : <ItemCount 
                         max={item.stock}
                         cantidad={cantidad}

@@ -1,10 +1,11 @@
 .container{
-    width: 350px;
-    display: flex;
-    flex-wrap:wrap;
-    align-items: center;
-    justify-content:space-between;
+    width: 800px;
     .grid{
-        justify-content: space-around;
+        width: 800px;
+        align-content: center;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
     }
 }

@@ -1,4 +1,9 @@
 import { clases } from "../helpers/utils"
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Stack from '@mui/material/Stack';
+import React, { useState } from 'react';
+import "./ItemCount.scss"
 
 
 const ItemCount = ({max, cantidad, setCantidad, agregar}) => {
@@ -10,35 +15,31 @@ const ItemCount = ({max, cantidad, setCantidad, agregar}) => {
         cantidad < max && setCantidad(cantidad + 1)
     }
 
+
     return (
-        <div>
-            <button 
+        <div className="button_cantidad">
+            <ButtonGroup variant="contained" aria-label="outlined primary button group">
+                <Button
                 onClick={handleRestar} 
-                // className={`btn mx-2 ${cantidad === 5 ? "boton-5" : ''} ${cantidad === 1 ? "btn-outline-danger" : "btn-outline-primary"}`}
-                className={clases(
-                    "btn",
-                    "mx-2",
-                    "btn-outline-primary",
-                    cantidad === 5 && "boton-5",
-                    cantidad === 1 ? "btn-outline-danger" : "btn-outline-primary"
-                )}
                 disabled={cantidad === 1}
-            >
-                -
-            </button>
+                >
+                <strong className="signo" >-</strong>    
+                </Button>
+                
+                <span className="span" >{cantidad}</span>
 
-            <span>{cantidad}</span>
-
-            <button 
+                <Button
                 onClick={handleSumar} 
-                className={cantidad === max ? "btn mx-2 btn-danger" : "btn mx-2 btn-primary"}
                 disabled={cantidad === max}
-            >
-                +
-            </button>
-
-            <br/>
-            <button onClick={agregar} className="btn btn-success my-2">Agregar</button>
+                >
+                <strong className="signo" >+</strong>    
+                </Button>
+            </ButtonGroup>        
+            <Stack direction="row" spacing={2}>
+                <Button className="button_agregar" onClick={agregar} variant="contained" color="success">
+                    Agregar
+                </Button>
+            </Stack>
 
         </div>
     )

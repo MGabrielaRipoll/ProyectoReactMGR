@@ -12,17 +12,15 @@ import Button from '@mui/material/Button';
 
 
 
-
 export default function MediaCard({item}) {
 
     return (
         <div className='card__contenedor' >
-            <Card className='card__completa'sx={{ maxWidth: 345 }}>
+            <Card className='card__completa'sx={{ maxWidth: 200 }}>
                 
                 <CardMedia className='card__imagen'
-                    // justifyContent="initial" 
-                    // spacing={2}
-                    sx={{ height: 300 }}
+                    spacing={2}
+                    sx={{ height: 200 }}
                     image= {item.img}
                     title= {item.nomre}   
                 />     
@@ -35,9 +33,9 @@ export default function MediaCard({item}) {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Link to={`/detail/${item.id}`}> 
-                        <Stack direction="row" itealign-items="center" spacing={2}>
-                            <Button variant="contained">Ver más</Button>
+                    <Link className='link_vermas' to={`/detail/${item.id}`}> 
+                        <Stack direction="center" itealign-items="center" spacing={2}>
+                            <Button className='button_vermas' variant="contained">Ver más</Button>
                         </Stack>
                     </Link>
                 </CardActions>

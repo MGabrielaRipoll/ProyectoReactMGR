@@ -23,6 +23,7 @@ function App() {
               <Route path="/contacto" element={ <Contacto /> }/>
               <Route path="/cart" element={ <CartView /> }/>
               <Route path="/checkout" element={ <Checkout /> }/>
+              {/* <Route path="/login" element={ <Login /> }/> */}
               <Route path="*" element={ <Navigate to="/"/> }/>
             </Routes>
 

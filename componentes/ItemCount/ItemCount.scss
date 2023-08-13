@@ -1,0 +1,22 @@
+.button_cantidad{
+    margin: 10px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+    .span{
+        margin: 10px;
+        font-size: 30px;
+        font-weight: bold;
+        color: black;
+    }
+    .signo{
+        font-size: 25px;
+    }
+    .button_agregar{
+        font-size: 25px;
+        height: 55px;
+    }
+}

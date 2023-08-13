@@ -5,7 +5,9 @@ import { db } from "../../src/firebase/config"
 import { Link, Navigate } from "react-router-dom"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from 'yup'
-import Button from 'react-bootstrap/Button';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import "./Checkout.scss"
 
 const schema = Yup.object().shape({
@@ -81,25 +83,32 @@ const Checkout = () => {
 
     if (orderId) {
         return (
-            <div className="container my-5">
-                <h2 className="text-4xl">Tu compra se registró exitosamente!</h2>
-                <hr/>
-                <p>Tu número de orden es: <strong>{orderId}</strong></p>
-
-                <Link to="/">Volver</Link>
+            <div className="container_orden">
+                <Stack sx={{ width: '100%' }} spacing={2}>
+                    <Alert severity="info">Tu compra se registró exitosamente!
+                    Tu número de orden es: <strong>{orderId}</strong>
+                    </Alert>
+                </Stack>
+                
+                <Link className="link_volver" to="/">
+                    <Stack direction="row" spacing={2}>
+                        <Button variant="contained" color="success">
+                            VOLVER
+                        </Button>
+                    </Stack>
+                </Link>
             </div>
         )
     }
+    
 
     if (cart.length === 0 ) {
         return <Navigate to="/"/>
     }
 
     return (
-        <div className="container my-5">
-            <h2>Completa tu orden de compra</h2>
-            <hr/>
-
+        <div className="container_form">
+            <h2>Completa tus datos para tu orden de compra</h2>
             <Formik
                 initialValues={{
                     nombre: '',
@@ -117,7 +126,7 @@ const Checkout = () => {
                         <ErrorMessage name="direccion" component="p"/>
                         <Field placeholder="Tu email" className="form-control my-2 item_form" type="email" name="email"/>
                         <ErrorMessage name="email" component="p"/>
-                        <button className="button_form" variant="success"  disabled={loading}>Listo</button>
+                        <button className="button_form" variant="success"  disabled={loading}>Enviar</button>
                     </Form>
                 )}
             </Formik>

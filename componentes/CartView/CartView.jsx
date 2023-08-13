@@ -2,8 +2,12 @@ import { useContext } from "react"
 import { CartContext } from "../Context/CartContext"
 import { Link } from "react-router-dom"
 import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import "./CartView.scss"
 
 
 
@@ -15,12 +19,12 @@ const CartView = () => {
     
     if (cart.length === 0) {
         return (
-            <div className="container my-5">
+            <div className="container_carritovacio">
                 <Stack sx={{ width: '100%' }} spacing={2}>
                     <Alert severity="info">Olvido agregar un producto a su carrito</Alert>
                 </Stack>
                 <hr/>
-                <Link to="/">
+                <Link className="link_volver" to="/">
                     <Stack direction="row" spacing={2}>
                         <Button variant="contained" color="success">
                             Ir a Comprar
@@ -32,29 +36,61 @@ const CartView = () => {
     }
 
     return (
-        <div className="container my-5">
-            <h2 className="text-4xl">Tu compra</h2>
-            <hr/>
+        <div className="cart__container">
+            <div className="alert_add">
+                <Stack  sx={{ width: '100%' }} spacing={2}>
+                    <Alert
+                        action={
+                        <Button onClick={vaciarCarrito} color="inherit" size="small">
+                            <strong>DESHACER</strong>
+                        </Button>
+                        }
+                    >
+                        TU COMPRA ESTA LISTA!!!
+                    </Alert>
+                </Stack>
+            </div>
 
-            {
-                cart.map((item) => (
-                    <div key={item.id}>
-                        <h3>{item.nombre}</h3>
-                        <img src={item.img} alt={item.nombre}/>
-                        <p>Precio: ${item.precio * item.cantidad}</p>
-                        <p>Cantidad: {item.cantidad}</p>
-                        <button onClick={() => removerDelCarrito(item.id)} className="btn btn-danger"></button>
-                        <hr/>
-                    </div>
-                ))
-            }
+            <div className="compra_detail">
+                {
+                    cart.map((item) => (
+                        <div key={item.id}>
+                            <h3>{item.nombre}</h3>
+                            <img src={item.img} alt={item.nombre} width={200}/>
+                            <strong>Cantidad: {item.cantidad}</strong>
+                            <Stack direction="row" spacing={1}>
+                                <IconButton onClick={() => removerDelCarrito(item.id)}  aria-label="delete">
+                                    <DeleteIcon />
+                                </IconButton>
+                            </Stack>
+                          
+                        </div>
+                    ))
+                }
+            </div>
 
-            <div>
-                
-                <h4 className="text-3xl my-2">Total: ${totalCompra()}</h4>
-                <button onClick={vaciarCarrito} className="btn btn-danger">Vaciar carrito</button>
-                <Link className="btn btn-success mx-2" to="/checkout">Terminar mi compra</Link>
-            </div>            
+            <div className="cart_resumen">
+                <Stack className="alert_total">
+                    <Alert severity="success">
+                        <AlertTitle>Agregado con exito</AlertTitle>
+                        <strong>Total: ${totalCompra()}</strong>
+                    </Alert>
+                </Stack>
+                <div className="button_container">
+                    <Stack className="button_fin">
+                        <Button onClick={vaciarCarrito}  variant="contained" color="error">
+                            Vaciar Carrito
+                        </Button>
+                    </Stack>
+                    <Link className="link_terminar" to="/checkout">
+                        <Stack className="button_fin" direction="row" spacing={2}>
+                            <Button variant="contained" color="success">
+                                Terminar mi compra
+                            </Button>
+                        </Stack>
+                    </Link> 
+                </div>            
+            </div>
         </div>
     )
 }

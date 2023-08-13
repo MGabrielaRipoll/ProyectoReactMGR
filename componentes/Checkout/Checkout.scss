@@ -1,17 +1,38 @@
-.Formulario {
+.container_form{
     display: flex;
     flex-direction: column;
-    padding: 10px;
-    margin: 5px;
-    width: 500px;
-    height: 40px;
-    .item_form{
+    align-items: start;
+    .Formulario {
+        display: flex;
+        flex-direction: column;
+        align-items:center;
         padding: 10px;
         margin: 5px;
-        text-align: center;
-        .button_form{
-            width: 100px;
-            background-color: green;
+        width: 500px;
+        height: 40px;
+        .item_form{
+            padding: 10px;
+            margin: 5px;
+            text-align: center;
+            width: 500px;
+            height: 40px;
+            .button_form{
+                width: 100px;
+                background-color: green;
+            }
         }
+    }
+}
+.container_orden{
+    width: 400px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    .link_volver{
+        text-decoration: none;
+        margin: 10px;
     }
 }

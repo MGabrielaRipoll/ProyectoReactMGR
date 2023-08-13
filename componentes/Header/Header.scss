@@ -4,15 +4,15 @@
 }
 .contenedor__header{
     background-color: rgb(37, 1, 71);
-
-    height: 200px;
+    height: 150px;
     .titulo{
         color: rgb(236, 31, 65);
-        font-size: 60px;
+        font-size: 40px;
         font-weight: bold;
         text-align: center;
     }
     .nav__bar{
+        height: 50px;
         color: aquamarine;
         .menu__contenedor{
             background-color: rgb(37, 1, 71);
