@@ -22,7 +22,6 @@ function Login() {
         setLoggedIn(false);
         sessionStorage.removeItem('loggedIn');
         setLoginMessage('La sesión se cerro con exito');
-
     };
 
     const handleUsernameChange = (event) => {

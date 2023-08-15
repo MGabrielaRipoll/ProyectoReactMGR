@@ -5,8 +5,8 @@ import "./itemList.scss"
 const ItemList = ({productos}) => {
 
     return (
-        <div className="container">
-            <div className="grid">
+        <div className='container catalogo__contenedor'>
+            <div className='flex flex-row flex-wrap justify-center gap-2'>
                 {
                     productos.map((prod) => <ItemCard key={prod.id} item={prod}/>)
                 }
