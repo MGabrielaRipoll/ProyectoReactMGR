@@ -3,7 +3,8 @@
     height: 40px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    gap: 5px;
+    justify-content: left;
     align-items: center;
     
     .span{

@@ -30,6 +30,7 @@ export const CartProvider = ({children}) => {
     const vaciarCarrito = () => {
         setCart([])
     }
+    
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart))

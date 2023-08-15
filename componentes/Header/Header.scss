@@ -4,12 +4,14 @@
 }
 .contenedor__header{
     background-color: rgb(37, 1, 71);
-    height: 150px;
+    height: 180px;
     .titulo{
         color: rgb(236, 31, 65);
-        font-size: 40px;
+        font-size: 45px;
         font-weight: bold;
         text-align: center;
+        margin: 0;
+        padding: 0;
     }
     .nav__bar{
         height: 50px;
