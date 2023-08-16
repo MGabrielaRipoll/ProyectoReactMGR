@@ -1,0 +1,14 @@
+.contenedor_formulario {
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: initial;
+    justify-content: center;
+    gap: 20px;
+    width: 500px;
+    .Form_label{
+        margin: 10px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+}

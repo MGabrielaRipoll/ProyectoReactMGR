@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState , useContext} from 'react';
+import { Link } from "react-router-dom";
 import "./login.scss";
 import { useAuth } from '../componentes/Context/AuthContext';
+import { CartContext } from "../componentes/Context/CartContext";
+
 
 function Login() {
+    const { vaciarCarrito } = useContext(CartContext)
     const { setLoggedIn } = useAuth();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState(''); 
@@ -22,6 +26,7 @@ function Login() {
         setLoggedIn(false);
         sessionStorage.removeItem('loggedIn');
         setLoginMessage('La sesión se cerro con exito');
+        vaciarCarrito();
     };
 
     const handleUsernameChange = (event) => {
@@ -61,6 +66,9 @@ function Login() {
                 <div className='contenedor_button'>
                     <button type="submit">Iniciar Sesión</button>
                     <button onClick={handleLogout} type="button">Cerrar Sesion</button>
+                    <Link className="link_volver" to="/contacto">
+                        <button type="button">Registrarme</button>
+                    </Link>
                 </div>
             </form>
         </div>

@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext()
 
-const init = JSON.parse(localStorage.getItem('cart')) || []
+const init = JSON.parse(sessionStorage.getItem('cart')) || []
 
 export const CartProvider = ({children}) => {
     const [cart, setCart] = useState(init)
@@ -33,7 +33,7 @@ export const CartProvider = ({children}) => {
     
 
     useEffect(() => {
-        localStorage.setItem('cart', JSON.stringify(cart))
+        sessionStorage.setItem('cart', JSON.stringify(cart))
     }, [cart])
 
     return (

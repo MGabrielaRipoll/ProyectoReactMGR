@@ -74,7 +74,6 @@ const Checkout = () => {
         
         addDoc(ordersRef, orden)
             .then((doc) => {
-                console.log(doc.id)
                 vaciarCarrito()
                 setOrderId(doc.id)
             })

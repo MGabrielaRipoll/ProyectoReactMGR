@@ -25,7 +25,6 @@ export const Header = () => {
                     <Link className="menu__opciones" to="/productos/raro">Raro</Link>
                     <Link className="menu__opciones" to="/productos/comun">Comun</Link>
                     <Link className="menu__opciones" to="/productos/superheroes">Superheroes</Link>
-                    <Link className="menu__opciones" to="/contacto">Contacto</Link>
                 </ul>
             </nav>
             

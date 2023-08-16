@@ -4,7 +4,7 @@
 }
 .contenedor__header{
     background-color: rgb(37, 1, 71);
-    height: 180px;
+    height: 200px;
     .titulo{
         color: rgb(236, 31, 65);
         font-size: 45px;
@@ -17,6 +17,7 @@
         height: 50px;
         color: aquamarine;
         .menu__contenedor{
+            margin-top: 20px;
             background-color: rgb(37, 1, 71);
             list-style: none;
             display: flex;
