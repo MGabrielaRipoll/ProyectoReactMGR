@@ -5,7 +5,9 @@ import Button from '@mui/material/Button';
 import "./Contacto.scss"
 import React, { useState } from 'react';
 import { db } from '../../src/firebase/config';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, getDocs  } from 'firebase/firestore';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -19,34 +21,62 @@ const Contacto =() => {
     const [domicilio, setDomicilio] = useState('');
     const [localidad, setLocalidad] = useState('');
 
-    const [error, setError] = useState(''); 
-    const [loginMessage, setLoginMessage] = useState('');
+    const notify_error = (mesagge) => {
+        toast.error(mesagge);
+      };
 
-    
+    const notify_login = (mesagge) => {
+        toast.success(mesagge);
+    };
     const handleSignup = async () => {
         try {
+            
+
             if (!usuario || !contrasenia || !domicilio || !localidad || !nombre_apellido ) {
-                setError('Por favor, complete todos los campos');
+                notify_error('Por favor, complete todos los campos');
                 return;
             }
-            const user = {
-                usuario: usuario,
-                contrasenia: contrasenia,
-                nombre_apellido: nombre_apellido,
-                domicilio: domicilio,
-                localidad:localidad
-            };
+            
             const usersRef = collection(db, 'users');
-            await addDoc(usersRef, user);
+            const querySnapshot = await getDocs(usersRef);
+            let isDuplicateUser = false; 
+            
+            querySnapshot.forEach((doc) => {
+                const userData = doc.data();
+                if (userData.usuario === usuario && userData.contrasenia === contrasenia) {
+                    isDuplicateUser = true;
+                    return; 
+                }
+            });
 
-            setLoginMessage('Registro Exitoso');
+            if (isDuplicateUser) {
+                notify_error('Usuario ya registrado'); } else {
+
+                const user = {
+                    usuario: usuario,
+                    contrasenia: contrasenia,
+                    nombre_apellido: nombre_apellido,
+                    domicilio: domicilio,
+                    localidad:localidad
+                };
+                await addDoc(usersRef, user);
 
 
-        } catch (error) {
+                notify_login('Registro Exitoso');
+                setUsuario('');
+                setPassword('');
+                setNombre_apellido('');
+                setDomicilio('');
+                setLocalidad('');
+                
+                }
 
-            setError('Ups, ha ocurrido un error, intente nuevamente');
+            } catch (error) {
 
-        }
+                notify_error('Ups, ha ocurrido un error, intente nuevamente');
+
+            }
+        
     };
     
     return (
@@ -113,9 +143,7 @@ const Contacto =() => {
                     Registrarme
                 </Button>
             </Stack>
-            <div style={{ color: 'red' }}>{error}</div>   
-    
-            <div style={{ color: 'green' }}>{loginMessage}</div> 
+           
         </Form>
     
     );

@@ -1,11 +1,6 @@
-// .container{
-//     width: 800px;
-//     .grid{
-//         width: 800px;
-//         align-content: center;
-//         display: flex;
-//         flex-direction: row;
-//         align-items: center;
-//         justify-content: space-evenly;
-//     }
-// }
+.card_contenedor {
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

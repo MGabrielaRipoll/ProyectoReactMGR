@@ -6,7 +6,7 @@ const ItemList = ({productos}) => {
 
     return (
         <div className='container catalogo__contenedor'>
-            <div className='flex flex-row flex-wrap justify-center gap-2'>
+            <div className='card_contenedor'>
                 {
                     productos.map((prod) => <ItemCard key={prod.id} item={prod}/>)
                 }
